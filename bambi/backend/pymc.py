@@ -164,6 +164,7 @@ class PyMCModel:
         cores=None,
         random_seed=None,
         sampler_backend="mcmc",
+        mp_ctx="forkserver",
         **kwargs,
     ):
         with self.model:
@@ -178,6 +179,7 @@ class PyMCModel:
                         chains=chains,
                         cores=cores,
                         random_seed=random_seed,
+                        mp_ctx=mp_ctx,
                         **kwargs,
                     )
                 except (RuntimeError, ValueError):
@@ -198,6 +200,7 @@ class PyMCModel:
                             chains=chains,
                             cores=cores,
                             random_seed=random_seed,
+                            mp_ctx=mp_ctx,
                             **kwargs,
                         )
                     else:
